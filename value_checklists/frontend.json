@@ -1,0 +1,15 @@
+{
+  "frontend": [
+    {"id": "responsive", "name": "响应式适配", "priority": "high", "description": "移动端/平板/桌面三端适配"},
+    {"id": "darkmode", "name": "深色模式", "priority": "medium", "description": "支持 light/dark 主题切换"},
+    {"id": "a11y", "name": "无障碍访问", "priority": "high", "description": "aria标签、键盘导航、屏幕阅读器兼容"},
+    {"id": "animation", "name": "动画过渡", "priority": "medium", "description": "页面切换、元素进入/退出动画"},
+    {"id": "perf", "name": "性能优化", "priority": "high", "description": "图片懒加载、代码分割、缓存策略"},
+    {"id": "seo", "name": "SEO优化", "priority": "medium", "description": "meta标签、结构化数据、语义化HTML"},
+    {"id": "tests", "name": "单元测试", "priority": "high", "description": "核心组件和交互逻辑的测试覆盖"},
+    {"id": "e2e", "name": "E2E测试", "priority": "medium", "description": "关键用户流程的端到端测试"},
+    {"id": "docs", "name": "文档完善", "priority": "medium", "description": "README、组件文档、部署说明"},
+    {"id": "pwa", "name": "PWA支持", "priority": "low", "description": "Service Worker、离线访问、安装提示"},
+    {"id": "i18n", "name": "国际化", "priority": "low", "description": "多语言支持框架搭建"}
+  ]
+}

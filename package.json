@@ -1,0 +1,24 @@
+{
+  "name": "agnes-loop",
+  "version": "0.1.0",
+  "description": "24-hour autonomous AI agent system with role-based orchestration",
+  "type": "module",
+  "main": "dist/agent.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/agent.js",
+    "agent": "node dist/agent.js"
+  },
+  "dependencies": {
+    "yaml": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "tsx": "^4.22.4",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

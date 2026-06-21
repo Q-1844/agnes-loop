@@ -1,0 +1,181 @@
+# AgnesLoop GitHub Actions 工作流
+#
+# 实现 24 小时自动运行的 AI Agent 系统
+# 借鉴 Aeon 框架的设计
+#
+# 功能:
+# - 定时运行 (每 6 小时)
+# - 手动触发
+# - 自动提交结果
+# - 通知支持
+
+name: AgnesLoop Agent
+
+run-name: "AgnesLoop - ${{ github.event.inputs.goal || 'scheduled run' }}"
+
+# ─── 触发条件 ──────────────────────────────────────────────────────────────────
+
+on:
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      goal:
+        description: '目标描述 (或 GOAL.md 路径)'
+        required: false
+        type: string
+      model:
+        description: '使用的模型'
+        required: false
+        type: choice
+        default: 'agnes-2.0-flash'
+        options:
+          - agnes-2.0-flash
+          - agnes-2.0-pro
+
+  # 定时触发 - 每 6 小时运行一次
+  schedule:
+    - cron: '0 */6 * * *'  # UTC 时间 00:00, 06:00, 12:00, 18:00
+
+# ─── 权限配置 ──────────────────────────────────────────────────────────────────
+
+permissions:
+  contents: write      # 需要提交代码
+  actions: read        # 需要读取工作流状态
+
+# ─── 环境变量 ──────────────────────────────────────────────────────────────────
+
+env:
+  NODE_VERSION: '20'
+
+# ─── 任务定义 ──────────────────────────────────────────────────────────────────
+
+jobs:
+  run:
+    name: Run AgnesLoop
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  # 最长运行 1 小时
+
+    steps:
+      # 1. 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. 设置 Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      # 3. 安装依赖
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. 编译 TypeScript
+      - name: Build
+        run: npm run build
+
+      # 5. 运行健康检查
+      - name: Health check
+        run: |
+          node -e "
+          const { checkHealth, formatHealthReport } = require('./dist/heartbeat');
+          const report = checkHealth();
+          console.log(formatHealthReport(report));
+          if (report.status === 'degraded') {
+            console.log('⚠️ 系统状态异常，继续运行但需注意');
+          }
+          "
+
+      # 6. 运行 AgnesLoop
+      - name: Run AgnesLoop
+        env:
+          AGNES_API_KEY: ${{ secrets.AGNES_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          # 如果有自定义目标，写入 GOAL.md
+          if [ -n "${{ github.event.inputs.goal }}" ]; then
+            echo "${{ github.event.inputs.goal }}" > GOAL.md
+            echo "✅ 自定义目标已写入 GOAL.md"
+          fi
+
+          # 运行 agent
+          node dist/agent.js
+
+      # 7. 运行自动修复
+      - name: Auto repair
+        if: always()
+        run: |
+          node -e "
+          const { checkHealth } = require('./dist/heartbeat');
+          const { autoRepair, formatRepairReport } = require('./dist/repair');
+          const report = checkHealth();
+          const repairReport = autoRepair(report);
+          console.log(formatRepairReport(repairReport));
+          "
+
+      # 8. 提交结果
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "agnesloop-bot"
+          git config user.email "agnesloop@bot"
+
+          # 添加所有变更
+          git add -A
+
+          # 检查是否有变更
+          if git diff --staged --quiet; then
+            echo "没有新的变更需要提交"
+          else
+            # 提交变更
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+            git commit -m "chore: auto-commit ${TIMESTAMP}
+
+            - 运行状态更新
+            - 质量评分记录
+            - 日志文件"
+
+            # 推送变更
+            git push
+            echo "✅ 变更已提交并推送"
+          fi
+
+      # 9. 生成运行摘要
+      - name: Summary
+        if: always()
+        run: |
+          echo "## AgnesLoop 运行摘要" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **时间:** $(date -u +"%Y-%m-%d %H:%M UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "- **触发:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **状态:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+
+          if [ -n "${{ github.event.inputs.goal }}" ]; then
+            echo "- **目标:** ${{ github.event.inputs.goal }}" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          # 读取 state.json 状态
+          if [ -f state.json ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Agent 状态" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat state.json | head -20 >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi
+
+      # 10. 上传日志 (失败时)
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: agnesloop-logs-${{ github.run_id }}
+          path: |
+            logs/
+            state.json
+            memory/
+          retention-days: 7

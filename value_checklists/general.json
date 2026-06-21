@@ -1,0 +1,12 @@
+{
+  "general": [
+    {"id": "error-handling", "name": "完善错误处理", "priority": "high", "description": "try-catch、错误边界、用户友好的错误提示"},
+    {"id": "logging", "name": "添加日志", "priority": "high", "description": "关键操作的日志记录"},
+    {"id": "cli-args", "name": "命令行参数支持", "priority": "medium", "description": "参数解析、--help 文档"},
+    {"id": "config-file", "name": "配置文件支持", "priority": "medium", "description": "外部化配置、环境变量"},
+    {"id": "tests", "name": "单元测试", "priority": "high", "description": "核心逻辑的测试覆盖"},
+    {"id": "readme", "name": "README文档", "priority": "high", "description": "安装、使用、示例"},
+    {"id": "license", "name": "添加许可证", "priority": "low", "description": "MIT 或其他开源许可证"},
+    {"id": "ci-cd", "name": "CI/CD配置", "priority": "low", "description": "GitHub Actions 自动测试/构建"}
+  ]
+}

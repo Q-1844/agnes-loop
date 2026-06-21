@@ -1,0 +1,13 @@
+{
+  "backend": [
+    {"id": "error-handling", "name": "完善错误处理", "priority": "high", "description": "try-catch、错误边界、用户友好的错误提示"},
+    {"id": "logging", "name": "结构化日志", "priority": "high", "description": "关键操作的日志记录"},
+    {"id": "api-docs", "name": "API文档", "priority": "high", "description": "OpenAPI/Swagger 文档"},
+    {"id": "rate-limit", "name": "速率限制", "priority": "medium", "description": "API 请求频率限制"},
+    {"id": "caching", "name": "缓存层", "priority": "medium", "description": "Redis 或内存缓存"},
+    {"id": "tests", "name": "单元测试", "priority": "high", "description": "核心逻辑的测试覆盖"},
+    {"id": "integration-tests", "name": "集成测试", "priority": "medium", "description": "API 端到端测试"},
+    {"id": "docker", "name": "Docker化", "priority": "low", "description": "Dockerfile + docker-compose"},
+    {"id": "ci-cd", "name": "CI/CD配置", "priority": "low", "description": "GitHub Actions 自动测试/构建"}
+  ]
+}

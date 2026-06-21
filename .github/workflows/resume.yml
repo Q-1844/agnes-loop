@@ -1,0 +1,54 @@
+# AgnesLoop Resume Checker
+# Checks every 10 minutes if there's a scheduled resume
+
+name: AgnesLoop Resume Checker
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+
+jobs:
+  check-and-resume:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      actions: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check if resume needed
+        id: check
+        run: |
+          if [ -f schedule.json ]; then
+            NEXT_RUN=$(node -e "console.log(require('./schedule.json').next_run_at)")
+            NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+            if [[ "$NOW" > "$NEXT_RUN" ]]; then
+              echo "should_resume=true" >> $GITHUB_OUTPUT
+              echo "Resume time reached. Next run: $NEXT_RUN, Now: $NOW"
+            else
+              echo "should_resume=false" >> $GITHUB_OUTPUT
+              echo "Not yet time. Next run: $NEXT_RUN"
+            fi
+          else
+            echo "should_resume=false" >> $GITHUB_OUTPUT
+            echo "No schedule.json found."
+          fi
+
+      - name: Trigger agent run
+        if: steps.check.outputs.should_resume == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Delete schedule.json
+          rm -f schedule.json
+          git config user.name "AgnesLoop Bot"
+          git config user.email "bot@agnesloop.local"
+          git add -A
+          git commit -m "resume triggered [skip ci]" || true
+          git push
+
+          # Trigger main workflow
+          gh workflow run agent.yml

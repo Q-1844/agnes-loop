@@ -1,0 +1,131 @@
+{
+  "dimensions": [
+    {
+      "name": "correctness",
+      "severity": "blocker",
+      "checks": [
+        {
+          "id": "C1",
+          "description": "Check that index.html exists",
+          "execute": "test -f index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "index.html does not exist"
+        },
+        {
+          "id": "C2",
+          "description": "Check that styles.css exists",
+          "execute": "test -f styles.css",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "styles.css does not exist"
+        },
+        {
+          "id": "C3",
+          "description": "Check that script.js exists",
+          "execute": "test -f script.js",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "script.js does not exist"
+        },
+        {
+          "id": "C4",
+          "description": "Check HTML has header element",
+          "execute": "grep -qi '<header' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No header element found in HTML"
+        },
+        {
+          "id": "C5",
+          "description": "Check HTML has hero section",
+          "execute": "grep -qi 'hero' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No hero section found in HTML"
+        },
+        {
+          "id": "C6",
+          "description": "Check HTML has features section",
+          "execute": "grep -qi 'feature' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No features section found in HTML"
+        },
+        {
+          "id": "C7",
+          "description": "Check HTML has footer element",
+          "execute": "grep -qi '<footer' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No footer element found in HTML"
+        },
+        {
+          "id": "C8",
+          "description": "Check HTML has navigation links",
+          "execute": "grep -qi '<nav' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No nav element found in HTML"
+        },
+        {
+          "id": "C9",
+          "description": "Check HTML has CTA button",
+          "execute": "grep -qi '<button' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No button element found in HTML"
+        },
+        {
+          "id": "C10",
+          "description": "Check CSS has media queries for responsive design",
+          "execute": "grep -qi '@media' styles.css",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No media queries found in CSS"
+        },
+        {
+          "id": "C11",
+          "description": "Check CSS has dark mode support",
+          "execute": "grep -qi 'dark' styles.css",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No dark mode styles found in CSS"
+        },
+        {
+          "id": "C12",
+          "description": "Check CSS uses custom properties",
+          "execute": "grep -qi 'var(--' styles.css",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No CSS custom properties found"
+        },
+        {
+          "id": "C13",
+          "description": "Check JS has dark mode toggle functionality",
+          "execute": "grep -qi 'toggle' script.js",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No toggle functionality found in JS"
+        },
+        {
+          "id": "C14",
+          "description": "Check JS has theme switching logic",
+          "execute": "grep -qi 'theme' script.js",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No theme switching logic found in JS"
+        },
+        {
+          "id": "C15",
+          "description": "Check HTML links to styles.css",
+          "execute": "grep -qi 'styles.css' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "HTML does not link to styles.css"
+        },
+        {
+          "id": "C16",
+          "description": "Check HTML links to script.js",
+          "execute": "grep -qi 'script.js' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "HTML does not link to script.js"
+        },
+        {
+          "id": "C17",
+          "description": "Check HTML has exactly 3 feature cards",
+          "execute": "grep -c 'feature' index.html",
+          "pass_condition": "result >= 3",
+          "fail_message": "Less than 3 feature elements found"
+        }
+      ]
+    }
+  ],
+  "pass_condition": "all blocker dimensions pass",
+  "max_retries": 3
+}

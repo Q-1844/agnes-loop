@@ -1,0 +1,18 @@
+{
+  "skill": "test-skill",
+  "last_analyzed": "2026-06-21T09:18:34.892Z",
+  "quality_score": 3,
+  "avg_score": 3,
+  "history": [
+    {
+      "date": "2026-06-21",
+      "score": 3,
+      "flags": [
+        "too_short",
+        "missing_required"
+      ]
+    }
+  ],
+  "total_runs": 1,
+  "successful_runs": 1
+}
