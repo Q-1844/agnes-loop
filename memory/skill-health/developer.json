@@ -1,8 +1,8 @@
 {
   "skill": "developer",
-  "last_analyzed": "2026-06-21T14:05:23.721Z",
+  "last_analyzed": "2026-06-21T14:11:09.723Z",
   "quality_score": 4,
-  "avg_score": 3.5,
+  "avg_score": 3.67,
   "history": [
     {
       "date": "2026-06-21",
@@ -17,8 +17,15 @@
       "date": "2026-06-21",
       "score": 4,
       "flags": []
+    },
+    {
+      "date": "2026-06-21",
+      "score": 4,
+      "flags": [
+        "contains_error"
+      ]
     }
   ],
-  "total_runs": 2,
-  "successful_runs": 2
+  "total_runs": 3,
+  "successful_runs": 3
 }

@@ -1,8 +1,8 @@
 {
   "skill": "reviewer",
-  "last_analyzed": "2026-06-21T14:02:35.179Z",
-  "quality_score": 3,
-  "avg_score": 3,
+  "last_analyzed": "2026-06-21T14:14:22.035Z",
+  "quality_score": 4,
+  "avg_score": 3.75,
   "history": [
     {
       "date": "2026-06-21",
@@ -10,8 +10,23 @@
       "flags": [
         "no_structure"
       ]
+    },
+    {
+      "date": "2026-06-21",
+      "score": 4,
+      "flags": []
+    },
+    {
+      "date": "2026-06-21",
+      "score": 4,
+      "flags": []
+    },
+    {
+      "date": "2026-06-21",
+      "score": 4,
+      "flags": []
     }
   ],
-  "total_runs": 1,
-  "successful_runs": 1
+  "total_runs": 4,
+  "successful_runs": 4
 }

@@ -1,0 +1,15 @@
+{
+  "skill": "researcher",
+  "last_analyzed": "2026-06-21T14:16:21.447Z",
+  "quality_score": 4,
+  "avg_score": 4,
+  "history": [
+    {
+      "date": "2026-06-21",
+      "score": 4,
+      "flags": []
+    }
+  ],
+  "total_runs": 1,
+  "successful_runs": 1
+}

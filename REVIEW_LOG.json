@@ -28,5 +28,175 @@
       "C19: JS has localStorage persistence",
       "C20: HTML has data-theme attribute"
     ]
+  },
+  {
+    "review_id": "review-1782050907250",
+    "step": 2,
+    "timestamp": "2026-06-21T14:08:27.250Z",
+    "result": "PASS",
+    "summary": "Step 2 review complete. All 20 checks passed successfully. The styles.css file contains mobile-first responsive design with CSS custom properties for theming, dark mode variables via [data-theme=\"dark\"], media queries for 768px and 1024px breakpoints, and full styling for all sections (header, hero, features, footer). The index.html properly references styles.css and script.js, includes all required structural elements (header, nav, hero, 3 feature cards, footer, theme-toggle button, data-theme attribute). The script.js implements dark mode toggle with localStorage persistence and system preference detection.",
+    "failed_checks": [],
+    "passed_checks": [
+      {
+        "check_id": "C1",
+        "dimension": "correctness",
+        "description": "index.html exists"
+      },
+      {
+        "check_id": "C2",
+        "dimension": "correctness",
+        "description": "styles.css exists"
+      },
+      {
+        "check_id": "C3",
+        "dimension": "correctness",
+        "description": "script.js exists"
+      },
+      {
+        "check_id": "C4",
+        "dimension": "correctness",
+        "description": "HTML has header element"
+      },
+      {
+        "check_id": "C5",
+        "dimension": "correctness",
+        "description": "HTML has hero section"
+      },
+      {
+        "check_id": "C6",
+        "dimension": "correctness",
+        "description": "HTML has features section"
+      },
+      {
+        "check_id": "C7",
+        "dimension": "correctness",
+        "description": "HTML has footer element"
+      },
+      {
+        "check_id": "C8",
+        "dimension": "correctness",
+        "description": "HTML has navigation element"
+      },
+      {
+        "check_id": "C9",
+        "dimension": "correctness",
+        "description": "HTML has CTA button"
+      },
+      {
+        "check_id": "C10",
+        "dimension": "correctness",
+        "description": "CSS has media queries for responsive design"
+      },
+      {
+        "check_id": "C11",
+        "dimension": "correctness",
+        "description": "CSS has dark mode support"
+      },
+      {
+        "check_id": "C12",
+        "dimension": "correctness",
+        "description": "CSS uses custom properties"
+      },
+      {
+        "check_id": "C13",
+        "dimension": "correctness",
+        "description": "JS has dark mode toggle functionality"
+      },
+      {
+        "check_id": "C14",
+        "dimension": "correctness",
+        "description": "JS has theme switching logic"
+      },
+      {
+        "check_id": "C15",
+        "dimension": "correctness",
+        "description": "HTML links to styles.css"
+      },
+      {
+        "check_id": "C16",
+        "dimension": "correctness",
+        "description": "HTML links to script.js"
+      },
+      {
+        "check_id": "C17",
+        "dimension": "correctness",
+        "description": "HTML has at least 3 feature references"
+      },
+      {
+        "check_id": "C18",
+        "dimension": "correctness",
+        "description": "HTML has theme-toggle button"
+      },
+      {
+        "check_id": "C19",
+        "dimension": "correctness",
+        "description": "JS has localStorage persistence"
+      },
+      {
+        "check_id": "C20",
+        "dimension": "correctness",
+        "description": "HTML has data-theme attribute"
+      }
+    ]
+  },
+  {
+    "review_id": "review-1782051123806",
+    "step": 3,
+    "timestamp": "2026-06-21T14:12:03.806Z",
+    "result": "PASS",
+    "summary": "All 20 checks passed for step 3 review. The project has: index.html (with header, nav, hero, features, footer, theme-toggle button, data-theme attribute, correct CSS/JS links), styles.css (with @media queries, dark mode styles, CSS custom properties), and script.js (with toggle functionality, theme switching logic, localStorage persistence). The dark mode toggle properly supports localStorage persistence and system preference detection.",
+    "failed_checks": [],
+    "passed_checks": [
+      "C1: index.html exists",
+      "C2: styles.css exists",
+      "C3: script.js exists",
+      "C4: HTML has header element",
+      "C5: HTML has hero section",
+      "C6: HTML has features section",
+      "C7: HTML has footer element",
+      "C8: HTML has navigation element",
+      "C9: HTML has CTA button",
+      "C10: CSS has media queries",
+      "C11: CSS has dark mode support",
+      "C12: CSS uses custom properties",
+      "C13: JS has toggle functionality",
+      "C14: JS has theme switching logic",
+      "C15: HTML links to styles.css",
+      "C16: HTML links to script.js",
+      "C17: HTML has 13 feature references (>=3)",
+      "C18: HTML has theme-toggle button",
+      "C19: JS has localStorage persistence",
+      "C20: HTML has data-theme attribute"
+    ]
+  },
+  {
+    "review_id": "review-1782051253299",
+    "step": 4,
+    "timestamp": "2026-06-21T14:14:13.299Z",
+    "result": "PASS",
+    "summary": "All 20 review checks (C1–C20) passed successfully. Verified: index.html, styles.css, and script.js all exist in root. HTML contains header, nav, hero, features (3+ cards), footer, CTA button, theme-toggle button, data-theme attribute, and correctly links to styles.css and script.js. CSS includes media queries for responsive breakpoints (768px, 1024px), dark mode support via [data-theme], and CSS custom properties (var(--...)). JavaScript implements dark mode toggle with localStorage persistence and system preference detection.",
+    "failed_checks": [],
+    "passed_checks": [
+      "C1: index.html exists",
+      "C2: styles.css exists",
+      "C3: script.js exists",
+      "C4: HTML has <header>",
+      "C5: HTML has hero section",
+      "C6: HTML has features section",
+      "C7: HTML has <footer>",
+      "C8: HTML has <nav>",
+      "C9: HTML has CTA button (btn-primary/Get Started)",
+      "C10: CSS has @media queries",
+      "C11: CSS has dark mode styles",
+      "C12: CSS uses CSS custom properties (var(--))",
+      "C13: JS has toggle functionality",
+      "C14: JS has theme switching logic",
+      "C15: HTML links to styles.css",
+      "C16: HTML links to script.js",
+      "C17: HTML has 8 feature references (>= 3)",
+      "C18: HTML has theme-toggle button",
+      "C19: JS has localStorage persistence",
+      "C20: HTML has data-theme attribute"
+    ]
   }
 ]
