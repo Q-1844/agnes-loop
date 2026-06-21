@@ -1,0 +1,24 @@
+{
+  "skill": "developer",
+  "last_analyzed": "2026-06-21T14:05:23.721Z",
+  "quality_score": 4,
+  "avg_score": 3.5,
+  "history": [
+    {
+      "date": "2026-06-21",
+      "score": 3,
+      "flags": [
+        "empty_output",
+        "no_structure",
+        "poor_formatting"
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "score": 4,
+      "flags": []
+    }
+  ],
+  "total_runs": 2,
+  "successful_runs": 2
+}

@@ -9,7 +9,7 @@
   'use strict';
 
   // --- Constants ---
-  var STORAGE_KEY = 'theme';
+  var STORAGE_KEY = 'landing-page-theme';
   var TOGGLE_BUTTON = document.getElementById('themeToggle');
   var DARK_CLASS = 'dark';
   var SUN_ICON = '\u2600\uFE0F';   // ☀️

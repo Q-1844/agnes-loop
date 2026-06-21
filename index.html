@@ -4,20 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landing Page</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Skip to content for accessibility -->
   <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- Header with Navigation -->
-  <header class="header">
+  <header class="site-header">
     <div class="container header-inner">
       <a href="#" class="logo" aria-label="Home">
-        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="32" height="32" rx="8" fill="var(--accent)"/>
-          <path d="M8 16L14 22L24 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <span class="logo-icon">&#9737;</span>
         Brand
       </a>
 
@@ -30,23 +27,8 @@
       </nav>
 
       <!-- Dark mode toggle button -->
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
-        <!-- Sun icon (shown in dark mode) -->
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/>
-          <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/>
-          <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-        <!-- Moon icon (shown in light mode) -->
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="toggle-icon">&#9789;</span>
       </button>
 
       <!-- Mobile menu button -->
@@ -63,8 +45,8 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
       <div class="container hero-inner">
-        <h1 class="hero-title">Build Something Amazing</h1>
-        <p class="hero-subtitle">A modern, responsive landing page crafted with pure HTML, CSS, and JavaScript. No frameworks, no dependencies — just clean code.</p>
+        <h1 class="hero-headline">Build Something Amazing</h1>
+        <p class="hero-description">A modern, responsive landing page crafted with pure HTML, CSS, and JavaScript. No frameworks, no dependencies — just clean code.</p>
         <a href="#features" class="btn btn-primary">Get Started</a>
       </div>
     </section>
@@ -75,43 +57,26 @@
         <h2 class="section-title">Features</h2>
         <p class="section-subtitle">Everything you need to get started</p>
 
-        <div class="feature-grid">
+        <div class="features-grid">
           <!-- Feature Card 1 -->
           <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </div>
-            <h3 class="feature-title">Responsive Design</h3>
-            <p class="feature-description">Looks great on every device, from mobile phones to large desktop screens. Built with a mobile-first approach.</p>
+            <div class="card-icon" aria-hidden="true">&#128187;</div>
+            <h3 class="card-title">Responsive Design</h3>
+            <p class="card-description">Looks great on every device, from mobile phones to large desktop screens. Built with a mobile-first approach.</p>
           </article>
 
           <!-- Feature Card 2 -->
           <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-              </svg>
-            </div>
-            <h3 class="feature-title">Dark Mode</h3>
-            <p class="feature-description">Easy on the eyes with a built-in dark theme that respects your system preferences and persists across sessions.</p>
+            <div class="card-icon" aria-hidden="true">&#127769;</div>
+            <h3 class="card-title">Dark Mode</h3>
+            <p class="card-description">Easy on the eyes with a built-in dark theme that respects your system preferences and persists across sessions.</p>
           </article>
 
           <!-- Feature Card 3 -->
           <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6"/>
-                <polyline points="8 6 2 12 8 18"/>
-                <line x1="14" y1="4" x2="10" y2="20"/>
-              </svg>
-            </div>
-            <h3 class="feature-title">Zero Dependencies</h3>
-            <p class="feature-description">Built with pure HTML, CSS, and vanilla JavaScript. No frameworks, no build tools, no external libraries needed.</p>
+            <div class="card-icon" aria-hidden="true">&#128736;</div>
+            <h3 class="card-title">Zero Dependencies</h3>
+            <p class="card-description">Built with pure HTML, CSS, and vanilla JavaScript. No frameworks, no build tools, no external libraries needed.</p>
           </article>
         </div>
       </div>
@@ -119,22 +84,28 @@
   </main>
 
   <!-- Footer -->
-  <footer id="footer" class="footer">
+  <footer id="footer" class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-section">
-        <h3 class="footer-heading">Brand</h3>
-        <p class="footer-text">Building amazing things with clean code.</p>
+      <div class="footer-brand">
+        <span class="logo-text">Brand</span>
+        <p class="footer-tagline">Building amazing things with clean code.</p>
       </div>
-      <div class="footer-section">
+      <div class="footer-links">
+        <h3 class="footer-heading">Navigation</h3>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
         <h3 class="footer-heading">Contact</h3>
-        <p class="footer-text">
-          Email: <a href="mailto:hello@example.com" class="footer-link">hello@example.com</a><br>
-          Phone: <a href="tel:+1234567890" class="footer-link">+1 (234) 567-890</a>
-        </p>
-      </div>
-      <div class="footer-section">
-        <h3 class="footer-heading">Address</h3>
-        <p class="footer-text">123 Web Street<br>Internet City, WC 00000</p>
+        <address>
+          Email: <a href="mailto:hello@example.com">hello@example.com</a><br>
+          Phone: <a href="tel:+1234567890">+1 (234) 567-890</a><br>
+          123 Web Street<br>
+          Internet City, WC 00000
+        </address>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -142,6 +113,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

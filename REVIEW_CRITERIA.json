@@ -55,7 +55,7 @@
         },
         {
           "id": "C8",
-          "description": "Check HTML has navigation links",
+          "description": "Check HTML has navigation element",
           "execute": "grep -qi '<nav' index.html",
           "pass_condition": "exit_code == 0",
           "fail_message": "No nav element found in HTML"
@@ -63,9 +63,9 @@
         {
           "id": "C9",
           "description": "Check HTML has CTA button",
-          "execute": "grep -qi '<button' index.html",
+          "execute": "grep -qi 'btn-primary\\|call-to-action\\|Get Started' index.html",
           "pass_condition": "exit_code == 0",
-          "fail_message": "No button element found in HTML"
+          "fail_message": "No CTA button found in HTML"
         },
         {
           "id": "C10",
@@ -122,6 +122,27 @@
           "execute": "grep -c 'feature' index.html",
           "pass_condition": "result >= 3",
           "fail_message": "Less than 3 feature elements found"
+        },
+        {
+          "id": "C18",
+          "description": "Check HTML has theme toggle button",
+          "execute": "grep -qi 'theme-toggle' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No theme toggle button found in HTML"
+        },
+        {
+          "id": "C19",
+          "description": "Check JS has localStorage persistence",
+          "execute": "grep -qi 'localStorage' script.js",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No localStorage persistence found in JS"
+        },
+        {
+          "id": "C20",
+          "description": "Check HTML has data-theme attribute",
+          "execute": "grep -qi 'data-theme' index.html",
+          "pass_condition": "exit_code == 0",
+          "fail_message": "No data-theme attribute found in HTML"
         }
       ]
     }

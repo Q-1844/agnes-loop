@@ -1,0 +1,17 @@
+{
+  "skill": "reviewer",
+  "last_analyzed": "2026-06-21T14:02:35.179Z",
+  "quality_score": 3,
+  "avg_score": 3,
+  "history": [
+    {
+      "date": "2026-06-21",
+      "score": 3,
+      "flags": [
+        "no_structure"
+      ]
+    }
+  ],
+  "total_runs": 1,
+  "successful_runs": 1
+}
